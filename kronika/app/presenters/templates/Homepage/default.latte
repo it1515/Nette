@@ -1,0 +1,32 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<h2>Seznam kurzů</h2>
+<div>
+    <table class="table table-bordered">
+       <thead>
+        <tr>
+            <th><a n:href="Homepage:default 'nazev'">Název kurzu</a></th>
+            <th><a n:href="Homepage:default 'lekci'">Počet lekcí</a></th>
+            <th><a n:href="Homepage:default 'jazyk'">Jazyk</a></th>
+            <th><a n:href="Homepage:default 'uroven'">Úroveň</a></th>
+            <th>Akce</th>
+        </tr>    
+       </thead>
+       <tbody>    
+    {foreach $data as $row}
+        <tr>
+            <td><a n:href="Homepage:view $row->id_kurzu">{$row->nazev|truncate:20}</a></td>
+            <td>{$row->lekci}</td>
+            <td>{$row->jazyk|upper}</td>
+            <td>{$row->uroven}</td>
+            <td><a n:href="Homepage:delete $row->id_kurzu" 
+                   class="btn btn-danger">Smazat</a>
+            </td>
+        </tr>    
+    {/foreach}
+        </tbody>
+    </table>   
+    <p><a n:href="Homepage:insert" class="btn btn-success">Nový záznám</a></p>  
+</div>       
+{/block}
