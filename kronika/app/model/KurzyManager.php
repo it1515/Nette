@@ -64,5 +64,11 @@ class KurzyManager
         {
                 $this->database->table(self::TABLE_NAME)->insert($values);
         }
+        
+        public function update($values, $id)
+        {
+                $row = $this->database->table(self::TABLE_NAME)->get($id);
+                $row->update($values);
+        }
 
 }

@@ -46,14 +46,15 @@ class Template8dea8b6c4e extends Latte\Runtime\Template
 
 <body>
         <header class="jumbotron">
-            <h1 class="text-center">Jazykové kurzy</h1>
+            <h1 class="text-center">JAZYKOVÉ KURZY</h1>
+            <p class="text-center">Přehled jazykových kurzů</p>
         </header>    
         <main class="container">
 <?php
 		$iterations = 0;
 		foreach ($flashes as $flash) {
 			?>	<div<?php if ($_tmp = array_filter(['flash', $flash->type])) echo ' class="', LR\Filters::escapeHtmlAttr(implode(" ", array_unique($_tmp))), '"' ?>><?php
-			echo LR\Filters::escapeHtmlText($flash->message) /* line 23 */ ?></div>
+			echo LR\Filters::escapeHtmlText($flash->message) /* line 24 */ ?></div>
 <?php
 			$iterations++;
 		}
@@ -66,6 +67,9 @@ class Template8dea8b6c4e extends Latte\Runtime\Template
 <?php
 		$this->renderBlock('scripts', get_defined_vars());
 ?>
+        <footer>
+            <p class="text-center">Copyright &copy; Vojtěch Kronika, 2018</p>
+        </footer>
 </body>
 </html>
 <?php
@@ -76,7 +80,7 @@ class Template8dea8b6c4e extends Latte\Runtime\Template
 	function prepare()
 	{
 		extract($this->params);
-		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 23');
+		if (isset($this->params['flash'])) trigger_error('Variable $flash overwritten in foreach on line 24');
 		Nette\Bridges\ApplicationLatte\UIRuntime::initialize($this, $this->parentName, $this->blocks);
 		
 	}
@@ -95,7 +99,7 @@ class Template8dea8b6c4e extends Latte\Runtime\Template
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
-	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 31 */ ?>/js/main.js"></script>
+	<script src="<?php echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($basePath)) /* line 32 */ ?>/js/main.js"></script>
 <?php
 	}
 

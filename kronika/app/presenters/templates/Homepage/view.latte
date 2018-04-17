@@ -1,5 +1,12 @@
 {* Latte template *}
 
 {block content}
-<h2>{$row->nazev}</h2>
-<p>jazyk: {$row->jazyk} úroveň: {$row->uroven}</p>
+<h1>{$row->nazev}</h1>
+<h2>Jazyk: {$row->jazyk} </h2> 
+<ul>
+    <li>Úroveň: <b>{$row->uroven}</b></li>
+    <li>Počet lekcí: <b>{$row->lekci}</b></li>
+    <li>Jméno lektora: <b>{$row->lektor}</b></li>
+    <li>Označení učebny: <b>{$row->ucebna}</b></li>
+</ul>
+<p><a n:href="Homepage:default">Zpět na hlavní stránku</p>

@@ -1,9 +1,9 @@
 <?php
-// source: D:\www\kronika\app\presenters/templates/Homepage/insert.latte
+// source: D:\www\kronika\app\presenters/templates/Homepage/update.latte
 
 use Latte\Runtime as LR;
 
-class Template846575d48a extends Latte\Runtime\Template
+class Templatef5f5d44e75 extends Latte\Runtime\Template
 {
 	public $blocks = [
 		'content' => 'blockContent',
@@ -35,7 +35,7 @@ class Template846575d48a extends Latte\Runtime\Template
 	{
 		extract($_args);
 ?>
-<h2>Nový kurz</h2>
+<h2>Editace článku</h2>
 <div>
 <?php
 		$this->createTemplate('../components/bootstrap-form.latte', $this->params, "import")->render();

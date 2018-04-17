@@ -26,7 +26,7 @@ class HomepagePresenter extends BasePresenter
                  $this->template->row = $this->kurzyManager->readOne($id);
         }
         
-        public function actionDelete($id) 
+        public function actionDelete($id)
         {
                 $this->kurzyManager->delete($id);
                 $this->flashMessage("Záznam byl úspěšně smazán");
@@ -35,6 +35,15 @@ class HomepagePresenter extends BasePresenter
         
         public function renderInsert()
         {      
+        }
+        
+        public function renderUpdate($id)
+        {      
+                $article = $this->kurzyManager->readOne($id);
+                if (!$article) {
+                  $this->error('Příspěvek nebyl nalezen');
+                }
+                $this['kurzyForm']->setDefaults($article->toArray());          
         }
         
         public function createComponentKurzyForm()

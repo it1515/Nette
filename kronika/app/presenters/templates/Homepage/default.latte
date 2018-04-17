@@ -20,7 +20,9 @@
             <td>{$row->lekci}</td>
             <td>{$row->jazyk|upper}</td>
             <td>{$row->uroven}</td>
-            <td><a n:href="Homepage:delete $row->id_kurzu" 
+            <td><a n:href="Homepage:update $row->id_kurzu" 
+                   class="btn btn-success">Editovat</a>
+                <a n:href="Homepage:delete $row->id_kurzu" 
                    class="btn btn-danger">Smazat</a>
             </td>
         </tr>    

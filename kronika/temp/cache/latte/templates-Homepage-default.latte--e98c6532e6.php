@@ -60,6 +60,8 @@ class Templatee98c6532e6 extends Latte\Runtime\Template
             <td><?php echo LR\Filters::escapeHtmlText(call_user_func($this->filters->upper, $row->jazyk)) /* line 21 */ ?></td>
             <td><?php echo LR\Filters::escapeHtmlText($row->uroven) /* line 22 */ ?></td>
             <td><a 
+                   class="btn btn-success" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:update", [$row->id_kurzu])) ?>">Editovat</a>
+                <a 
                    class="btn btn-danger" href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:delete", [$row->id_kurzu])) ?>">Smazat</a>
             </td>
         </tr>    

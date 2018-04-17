@@ -34,8 +34,15 @@ class Templatea199aabb26 extends Latte\Runtime\Template
 	function blockContent($_args)
 	{
 		extract($_args);
-		?><h2><?php echo LR\Filters::escapeHtmlText($row->nazev) /* line 4 */ ?></h2>
-<p>jazyk: <?php echo LR\Filters::escapeHtmlText($row->jazyk) /* line 5 */ ?> úroveň: <?php echo LR\Filters::escapeHtmlText($row->uroven) /* line 5 */ ?></p>
+		?><h1><?php echo LR\Filters::escapeHtmlText($row->nazev) /* line 4 */ ?></h1>
+<h2>Jazyk: <?php echo LR\Filters::escapeHtmlText($row->jazyk) /* line 5 */ ?> </h2> 
+<ul>
+    <li>Úroveň: <b><?php echo LR\Filters::escapeHtmlText($row->uroven) /* line 7 */ ?></b></li>
+    <li>Počet lekcí: <b><?php echo LR\Filters::escapeHtmlText($row->lekci) /* line 8 */ ?></b></li>
+    <li>Jméno lektora: <b><?php echo LR\Filters::escapeHtmlText($row->lektor) /* line 9 */ ?></b></li>
+    <li>Označení učebny: <b><?php echo LR\Filters::escapeHtmlText($row->ucebna) /* line 10 */ ?></b></li>
+</ul>
+<p><a href="<?php echo LR\Filters::escapeHtmlAttr($this->global->uiControl->link("Homepage:default")) ?>">Zpět na hlavní stránku</p>
 <?php
 	}
 
