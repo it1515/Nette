@@ -1,0 +1,10 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<h1>{$row->jmeno} {$row->prijmeni}</h1>
+<p>Datum narorení: {$row->narozeni} </p>
+<p>Výkon: {$row->vykon->format('%h:%I:%S')} </p>
+
+<h2>Kariéra</h2>
+<p>{$row->kariera} </p>
+<p><a n:href="Homepage:default">Zpět na seznam závodníků</p>

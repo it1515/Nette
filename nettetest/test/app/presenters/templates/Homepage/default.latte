@@ -1,0 +1,33 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<h2>Startovní listina</h2>
+<br>
+<div>
+    <table class="table table-bordered">
+       <thead>
+        <tr>
+            <th><a n:href="Homepage:default 'jmeno'">Jméno</a></th>
+            <th><a n:href="Homepage:default 'narozeni'">Ročník narození</a></th>
+            <th><a n:href="Homepage:default 'stat'">Stát</a></th>
+            <th>Akce</th>
+        </tr>    
+       </thead>
+       <tbody>    
+    {foreach $data as $row}
+        <tr>
+            <td><a n:href="Homepage:view $row->id">{$row->jmeno} {$row->prijmeni}</a></td>
+            <td>{$row->narozeni|date:'Y'}</td>
+            <td>{$row->stat}</td>
+            <td><a n:href="Homepage:update $row->id" 
+                   class="btn btn-success">Upravit</a>
+                   |
+                <a n:href="Homepage:delete $row->id" 
+                   class="btn btn-danger">Smazat</a>
+            </td>          
+        </tr>    
+    {/foreach}
+        </tbody>
+    </table>   
+    <p><a n:href="Homepage:insert" class="btn btn-success">Přidat běžce</a></p>  
+</div>

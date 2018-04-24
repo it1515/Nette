@@ -1,0 +1,43 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>{ifset title}{include title|stripHtml} | {/ifset}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        {block head}{/block}
+</head>
+
+<body
+    <header>
+        <div class="jumbotron">
+            <h1 class="text-center">MARATÓN V4</h1>
+            <hr>
+            <h3 class="text-center">Střední Evropa v poklusu</h3>
+        </div>
+        
+    </header>
+  	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+    
+    <div class="container">
+        {include content}
+    </div>
+    {block scripts}
+    	<script src="{$basePath}/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+
+    {/block}
+    <footer>
+        <p class="text-center">Copyright &copy; Vojtěch Kronika, 2018</p>
+    </footer>
+</body>
+</html>
